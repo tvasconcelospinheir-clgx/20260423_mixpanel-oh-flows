@@ -1,60 +1,42 @@
-# Mixpanel Analysis Starter
+# Analytics Lab
 
-This project connects to Mixpanel using a service account and exports starter analytics outputs.
+This repository uses a self-contained project pattern: each request lives under `projects/YYYYMMDD_project-name/` with its own `data/`, `notebooks/`, and `outputs/` folders.
 
-## Architecture (What this is building)
+## Current Project
 
-- `src/mixpanel_client.py`: API client that handles authentication, request timeouts, and JSON parsing.
-- `src/main.py`: orchestration script that runs a first analysis pull and writes outputs to `data/`.
-- `src/analysis_ideas.py`: starter list of analysis questions to guide what to build next.
-- `data/`: generated JSON/CSV outputs (kept out of source control).
-- `.env`: local secrets/config only.
+- `projects/20260423_mixpanel-oh-flows/run.py`: entry point for this request.
+- `projects/20260423_mixpanel-oh-flows/data/raw/`: API pulls.
+- `projects/20260423_mixpanel-oh-flows/data/processed/`: cleaned/analysis-ready outputs.
+- `projects/20260423_mixpanel-oh-flows/notebooks/`: project notebooks.
+- `projects/20260423_mixpanel-oh-flows/outputs/`: final artifacts for sharing.
 
-Design choices:
-- Credentials are read from environment variables, never hardcoded.
-- Scripts live in `src/`, outputs in `data/`.
-- Intermediate outputs are persisted as both JSON and CSV when possible.
-- API calls use explicit timeouts and raise errors on non-2xx responses.
+## Shared Code
 
-## 1) Setup
+- `src/connectors/mixpanel.py`: Mixpanel API client and request handling.
+- `src/common/export.py`: shared JSON/CSV writers.
+- `src/common/qa.py`: reusable quality checks.
 
-1. Create a `.env` file from `.env.example`.
-2. Fill in:
+## Setup
+
+1. Create `.env` from `.env.example` and fill:
    - `MIXPANEL_PROJECT_ID`
    - `MIXPANEL_SERVICE_ACCOUNT_USERNAME`
    - `MIXPANEL_SERVICE_ACCOUNT_SECRET`
    - `MIXPANEL_VERIFY_SSL=true`
-   - `MIXPANEL_CA_BUNDLE=` (optional path to corporate CA cert bundle)
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+   - `MIXPANEL_CA_BUNDLE=` (optional org CA bundle path)
+2. Create environment (Conda):
+   - `conda env create -f environment.yml`
+   - `conda activate analytics_base`
 
-## 2) Run
+## Run
 
-```bash
-python src/main.py
-```
+- `python projects/20260423_mixpanel-oh-flows/run.py`
 
-Or run the VS Code task: `Run Mixpanel Pull`.
+Or run the VS Code task `Run Mixpanel Pull`.
 
-## SSL troubleshooting (corporate networks)
+## Start Next Request
 
-If you see SSL certificate verification errors:
-- Preferred: set `MIXPANEL_CA_BUNDLE` to your org CA bundle path.
-- Temporary fallback: set `MIXPANEL_VERIFY_SSL=false` to bypass verification.
+- `python scripts/run_request.py <project-name>`
 
-Use the fallback only for debugging and switch back to secure verification after fixing CA trust.
-
-## 3) Outputs
-
-- `data/top_events_7d.json`
-- `data/top_events_7d.csv` (if data returned)
-- `data/analysis_ideas.json`
-
-## 4) Next analyses to build
-
-- Conversion funnel by segment (country/device/channel)
-- Retention cohorts by acquisition source
-- Time-to-value distribution for newly signed-up users
-- Leading indicators of churn
+Example:
+- `python scripts/run_request.py pendo-onboarding`
