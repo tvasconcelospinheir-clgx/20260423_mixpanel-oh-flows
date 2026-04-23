@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# Env files
+.env
+
+# Data outputs
+data/*.csv
+data/*.json
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/*.log
