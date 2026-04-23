@@ -1,0 +1,14 @@
+name: analytics_base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - jupyter
+  - ipykernel
+  - pandas>=2.2
+  - pip:
+    - requests>=2.32.0
+    - python-dotenv>=1.0.1
+    - -e .

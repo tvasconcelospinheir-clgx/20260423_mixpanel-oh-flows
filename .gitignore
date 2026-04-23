@@ -9,12 +9,27 @@ venv/
 # Env files
 .env
 
-# Data outputs
+# Data — ignore all generated data, keep .gitkeep placeholders
+projects/*/data/**
+!projects/*/data/**/.gitkeep
+projects/*/outputs/**
+!projects/*/outputs/.gitkeep
+shared_data/**
+!shared_data/**/.gitkeep
+
+# Legacy root data folder
 data/*.csv
 data/*.json
+data/*.parquet
+data/*.xlsx
 
 # Notebook checkpoints
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
 
 # VS Code
 .vscode/*.log
