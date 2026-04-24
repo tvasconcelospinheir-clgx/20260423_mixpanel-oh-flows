@@ -6,7 +6,7 @@
       "type": "shell",
       "command": "python",
       "args": [
-        "projects/analytics-lab/run.py"
+        "projects/20260423_mixpanel-oh-flows/run.py"
       ],
       "group": "build",
       "problemMatcher": []

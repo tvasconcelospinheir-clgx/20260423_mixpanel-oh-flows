@@ -7,7 +7,7 @@ Each request should live in its own folder under `projects/`, with isolated data
 ## Folder Purpose
 
 - `projects/`: request-specific work folders.
-- `projects/analytics-lab/`: current request implementation.
+- `projects/20260423_mixpanel-oh-flows/`: current request implementation.
 - `references/`: static reference material and notes.
 - `scratchpad/`: temporary local experiments.
 - `scripts/`: helper scripts for project scaffolding.
@@ -18,11 +18,11 @@ Each request should live in its own folder under `projects/`, with isolated data
 
 ## Current Request
 
-- `projects/analytics-lab/run.py`: main runner for this request.
-- `projects/analytics-lab/data/raw/`: raw pulled data.
-- `projects/analytics-lab/data/processed/`: cleaned outputs.
-- `projects/analytics-lab/notebooks/`: exploratory notebooks.
-- `projects/analytics-lab/outputs/`: share-ready deliverables.
+- `projects/20260423_mixpanel-oh-flows/run.py`: main runner for this request.
+- `projects/20260423_mixpanel-oh-flows/data/raw/`: raw pulled data.
+- `projects/20260423_mixpanel-oh-flows/data/processed/`: cleaned outputs.
+- `projects/20260423_mixpanel-oh-flows/notebooks/`: exploratory notebooks.
+- `projects/20260423_mixpanel-oh-flows/outputs/`: share-ready deliverables.
 
 ## Environment Setup
 
@@ -43,7 +43,7 @@ If you are running the current Mixpanel request, fill these in `.env`:
 
 ## Run Current Request
 
-- `python projects/analytics-lab/run.py`
+- `python projects/20260423_mixpanel-oh-flows/run.py`
 
 ## Start a New Request Folder
 
