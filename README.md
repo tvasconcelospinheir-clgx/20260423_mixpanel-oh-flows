@@ -4,11 +4,11 @@ This repository uses a self-contained project pattern: each request lives under 
 
 ## Current Project
 
-- `projects/20260423_mixpanel-oh-flows/run.py`: entry point for this request.
-- `projects/20260423_mixpanel-oh-flows/data/raw/`: API pulls.
-- `projects/20260423_mixpanel-oh-flows/data/processed/`: cleaned/analysis-ready outputs.
-- `projects/20260423_mixpanel-oh-flows/notebooks/`: project notebooks.
-- `projects/20260423_mixpanel-oh-flows/outputs/`: final artifacts for sharing.
+- `projects/analytics-lab/run.py`: entry point for this request.
+- `projects/analytics-lab/data/raw/`: API pulls.
+- `projects/analytics-lab/data/processed/`: cleaned/analysis-ready outputs.
+- `projects/analytics-lab/notebooks/`: project notebooks.
+- `projects/analytics-lab/outputs/`: final artifacts for sharing.
 
 ## Shared Code
 
@@ -30,7 +30,7 @@ This repository uses a self-contained project pattern: each request lives under 
 
 ## Run
 
-- `python projects/20260423_mixpanel-oh-flows/run.py`
+- `python projects/analytics-lab/run.py`
 
 Or run the VS Code task `Run Mixpanel Pull`.
 

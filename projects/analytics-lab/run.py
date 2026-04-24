@@ -7,6 +7,10 @@ _repo_root = Path(__file__).resolve().parents[2]
 if str(_repo_root) not in sys.path:
     sys.path.insert(0, str(_repo_root))
 
+_project_dir = Path(__file__).resolve().parent
+if str(_project_dir) not in sys.path:
+    sys.path.insert(0, str(_project_dir))
+
 from analysis_ideas import starter_analysis_ideas
 from src.common.export import write_csv, write_json
 from src.connectors.mixpanel import MixpanelClient
